@@ -1,18 +1,5 @@
 defmodule Budget do
-  @moduledoc """
-  Documentation for Budget.
-  """
-
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> Budget.hello
-      :world
-
-  """
-  def hello do
-    :world
+  def list_transactions do
+    File.read("lib/transactions.csv")
   end
 end

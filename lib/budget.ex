@@ -49,6 +49,7 @@ defmodule Budget do
   end
 
   defp print_to_console([data, description, amount]) do
-    IO.puts "#{data} #{description} \t$#{:erlang.float_to_binary(amount, decimals: 2)}"
+    amount = Budget.Conversion.from_dollar_to_real(amount)
+    IO.puts "#{data} #{description} \tR$ #{:erlang.float_to_binary(amount, decimals: 2)}"
   end
 end

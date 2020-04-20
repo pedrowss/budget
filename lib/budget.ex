@@ -13,7 +13,7 @@ defmodule Budget do
   defp parse(string) do
     string
     |> String.replace("\r", "")
-    |> CSV.parse_string
+    |> CSV.parse_string()
   end
 
   defp filter(rows) do
@@ -44,12 +44,12 @@ defmodule Budget do
   end
 
   defp print(rows) do
-    IO.puts "\nTransactions:"
+    IO.puts("\nTransactions:")
     Enum.each(rows, &print_to_console(&1))
   end
 
   defp print_to_console([data, description, amount]) do
     amount = Budget.Conversion.from_dollar_to_real(amount)
-    IO.puts "#{data} #{description} \tR$ #{:erlang.float_to_binary(amount, decimals: 2)}"
+    IO.puts("#{data} #{description} \tR$ #{:erlang.float_to_binary(amount, decimals: 2)}")
   end
 end
